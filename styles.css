@@ -2,13 +2,27 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
     color: #333;
     height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .container {
     max-width: 1000px;
@@ -41,8 +55,8 @@ p {
     align-items: center;
 }
 #display {
-    width: 300px;
-    max-width: 90%;
+    width: 400px;
+    max-width: 95%;
     padding: 15px;
     font-size: 1.5em;
     text-align: right;
@@ -55,8 +69,8 @@ p {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    width: 300px;
-    max-width: 90%;
+    width: 400px;
+    max-width: 95%;
 }
 .calc-buttons button {
     padding: 15px;
@@ -75,6 +89,39 @@ p {
     box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
 }
 .calc-buttons button:active {
+    transform: translateY(0);
+}
+.scientific-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 400px;
+    max-width: 95%;
+    margin-top: 15px;
+}
+.trig-functions, .log-functions, .power-functions, .other-functions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+.scientific-buttons button {
+    padding: 12px 8px;
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(78, 205, 196, 0.3);
+    min-height: 40px;
+}
+.scientific-buttons button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+}
+.scientific-buttons button:active {
     transform: translateY(0);
 }
 .data-input {

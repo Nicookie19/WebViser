@@ -33,6 +33,34 @@
                 <button onclick="setOperation('+')">+</button>
                 <button onclick="clearCalc()">C</button>
             </div>
+            <div class="scientific-buttons">
+                <div class="trig-functions">
+                    <button onclick="scientificOperation('sin')">sin</button>
+                    <button onclick="scientificOperation('cos')">cos</button>
+                    <button onclick="scientificOperation('tan')">tan</button>
+                    <button onclick="scientificOperation('asin')">asin</button>
+                    <button onclick="scientificOperation('acos')">acos</button>
+                    <button onclick="scientificOperation('atan')">atan</button>
+                </div>
+                <div class="log-functions">
+                    <button onclick="scientificOperation('log')">log</button>
+                    <button onclick="scientificOperation('ln')">ln</button>
+                    <button onclick="scientificOperation('exp')">exp</button>
+                </div>
+                <div class="power-functions">
+                    <button onclick="scientificOperation('sqrt')">√</button>
+                    <button onclick="scientificOperation('cbrt')">∛</button>
+                    <button onclick="scientificOperation('pow2')">x²</button>
+                    <button onclick="scientificOperation('pow3')">x³</button>
+                </div>
+                <div class="other-functions">
+                    <button onclick="scientificOperation('factorial')">n!</button>
+                    <button onclick="scientificOperation('inv')">1/x</button>
+                    <button onclick="scientificOperation('neg')">±</button>
+                    <button onclick="appendNumber(Math.PI.toString())">π</button>
+                    <button onclick="appendNumber(Math.E.toString())">e</button>
+                </div>
+            </div>
         </div>
 
         <div class="data-input">

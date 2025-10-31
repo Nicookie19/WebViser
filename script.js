@@ -59,6 +59,101 @@ function clearCalc() {
     display.value = '';
 }
 
+function scientificOperation(op) {
+    if (currentInput === '') return;
+    const num = parseFloat(currentInput);
+    if (isNaN(num)) return;
+    let result;
+    switch (op) {
+        case 'sin':
+            result = Math.sin(num);
+            break;
+        case 'cos':
+            result = Math.cos(num);
+            break;
+        case 'tan':
+            result = Math.tan(num);
+            break;
+        case 'asin':
+            if (num < -1 || num > 1) {
+                alert('Arcsin is defined only for values between -1 and 1');
+                return;
+            }
+            result = Math.asin(num);
+            break;
+        case 'acos':
+            if (num < -1 || num > 1) {
+                alert('Arccos is defined only for values between -1 and 1');
+                return;
+            }
+            result = Math.acos(num);
+            break;
+        case 'atan':
+            result = Math.atan(num);
+            break;
+        case 'log':
+            if (num <= 0) {
+                alert('Logarithm of non-positive number is undefined');
+                return;
+            }
+            result = Math.log10(num);
+            break;
+        case 'ln':
+            if (num <= 0) {
+                alert('Natural logarithm of non-positive number is undefined');
+                return;
+            }
+            result = Math.log(num);
+            break;
+        case 'sqrt':
+            if (num < 0) {
+                alert('Square root of negative number is undefined');
+                return;
+            }
+            result = Math.sqrt(num);
+            break;
+        case 'cbrt':
+            result = Math.cbrt(num);
+            break;
+        case 'exp':
+            result = Math.exp(num);
+            break;
+        case 'factorial':
+            if (num < 0 || !Number.isInteger(num)) {
+                alert('Factorial is defined only for non-negative integers');
+                return;
+            }
+            result = factorial(num);
+            break;
+        case 'pow2':
+            result = Math.pow(num, 2);
+            break;
+        case 'pow3':
+            result = Math.pow(num, 3);
+            break;
+        case 'inv':
+            if (num === 0) {
+                alert('Division by zero');
+                return;
+            }
+            result = 1 / num;
+            break;
+        case 'neg':
+            result = -num;
+            break;
+        default:
+            return;
+    }
+    currentInput = result.toString();
+    display.value = currentInput;
+    addToHistory(result);
+}
+
+function factorial(n) {
+    if (n === 0 || n === 1) return 1;
+    return n * factorial(n - 1);
+}
+
 function addToHistory(result) {
     calculationHistory.push(result);
     if (calculationHistory.length > 10) {
